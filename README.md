@@ -1,5 +1,5 @@
 <h2> **Wordlist Manipulator (wm): Manipulate your existing wordlists**</h2>
-### Wordlist Manipulator v1.0 Copyright (c) 2020
+### Wordlist Manipulator v1.0 Copyright (c) 2020</br>
 
 
 Author: eof0100</br>
