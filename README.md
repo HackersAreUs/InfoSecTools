@@ -4,7 +4,7 @@
 
 <p>Author: eof0100</p></br>
 <p>E-mail: eof0100@HackersAreUs.com </p></br>
-<p>Site:   https://www.HackersAreUs.com(https://www.hackersareus.com) </p></br>
+<p>Site:   https://www.HackersAreUs.com </p></b>
 
 <p>
 Wordlist Manipulator (wm) will take your existing wordlists and perform
