@@ -13,3 +13,13 @@ word per line, letter by letter, converting each character to desired technique.
 Currently, some of the techniques available are case options, prefix, append, 
 wpa conversion, and wordlist optimization.New techniques are still being added.
 </p>
+
+<h4>Background</h4>
+<p>This is my first small project. I am constantly messing around with my wordlists
+using the linux built-in commands such as cat, grep, awk, sort, etc. Began learning 
+Python and I thought it would be a perfect practice project plus creating something
+that I will actually use on regular basis. If someone can benefit from it that is
+definitely a plus. Go easy on my coding, remember, learning in progress.<br>
+
+<i>- eof0100</i> 
+
