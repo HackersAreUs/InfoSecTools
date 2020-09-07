@@ -38,7 +38,7 @@ Version 1.0 - initial release
 
 
 import re
-#import argparse 
+from argparse import ArgumentParser, SUPPRESS 
 
 
 __prog__ = 'wordlistManipulator'
@@ -252,44 +252,11 @@ def Prefix(wordlistRead, wordlistWrite, prefix_word):
         print("Reading/Writing Permission Denied.\n")
     except:
         print("Unknown Error has Occurred.") 
-
-
         
 
 # -- End Wordlist Functions ---
 
-'''
 
-
-# *** Building Argparse CLI ****
-parser = argparse.ArgumentParser(description='For all your wordlist fine tuning needs', usage=banner) 
-
-# Adding Arguments
-parser.add_argument('-v', '--version', help='Output version information and exit', action='store_true')
-parser.add_argument('-w', '--wordlist', help='Specify existing wordlist to manipulate')
-parser.add_argument('-o', '--output', help='Specify file to output new wordlist')
-parser.add_argument('-c', '--capitalize', help='Capitalize each word per line', action='store_true') 
-
-# access arguments via argparser.argument 
-argparser = parser.parse_args()
-
-
-# ***** End Argparse ******s
-
-
-# Argparse -v or --version execute ShowVersion() 
-if argparser.version:
-    print(banner)
-    ShowVersion()
-
-
-if argparser.wordlist and argparser.output and argparser.capitalize:
-    CapFirstLetter(argparser.wordlist, argparser.output) 
-
-
-'''
-
-from argparse import ArgumentParser, SUPPRESS 
 
 # Disable default help
 parser = ArgumentParser(add_help=False, usage=banner)
