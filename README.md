@@ -1,10 +1,10 @@
-## **Wordlist Manipulator (wm): Manipulate your existing wordlists**
+<h2> **Wordlist Manipulator (wm): Manipulate your existing wordlists**</h2>
 ### Wordlist Manipulator v1.0 Copyright (c) 2020
 
 
-<p>Author: eof0100</p>
-<p>E-mail: eof0100@HackersAreUs.com </p>
-<p>Site:   https://www.HackersAreUs.com(https://www.hackersareus.com) </p>
+<p>Author: eof0100</p></br>
+<p>E-mail: eof0100@HackersAreUs.com </p></br>
+<p>Site:   https://www.HackersAreUs.com(https://www.hackersareus.com) </p></br>
 
 <p>
 Wordlist Manipulator (wm) will take your existing wordlists and perform
