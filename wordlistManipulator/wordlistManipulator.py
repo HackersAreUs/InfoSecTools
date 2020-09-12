@@ -9,12 +9,12 @@ Contact: eof0100@hackersareus.com
 
 My first official python project. Sometimes wordlists 
 need some fine tuning or a manipulation of some kind
-to get the most of your wordlists with  a highest 
+to get the most of your wordlists with the highest 
 possible success of cracking your hash(es).
 
 This tool will alter your existing wordlists, some examples
-include changing uppercase to lowercase, capitalizing
-letters, or even splitting a word in two.
+include changing uppercase to lowercase, capitalizing first 
+letter, nad case mixing.
 
 I realize there are better tools out there
 such as wlm, crunch, or one of my favorites 
@@ -254,6 +254,85 @@ def Prefix(wordlistRead, wordlistWrite, prefix_word):
         print("Unknown Error has Occurred.") 
         
 
+'''
+# Idea: Create different leet speak options such as 
+# 1. Minor  leetspeak l=1 e=3
+# 2. Minor  leetspeak l=1 e=3 o=0
+# 3. Minor  leetspeak l=1 e=3 o=0 a=4 
+# 4. Minor  leetspeak l=1 e=3 o=0 a=4 b=8 
+# 5. Minor  leetspeak l=1 e=3 o=0 a=4 b=8 z=2 
+# 6. Major which includes combination of these
+    A: 4, /-\, /_\, @, /\, Д
+    B: 8,|3, 13, |}, |:, |8, 18, 6, |B, |8, lo, |o, j3, ß,
+    C: <, {, [, (, ©, ¢,
+    D: |), |}, |], |>,
+    E: 3, £, ₤, €
+    F: |=, ph, |#, |", ƒ
+    G: [, -, [+, 6, C-,
+    H: #, 4, |-|, [-], {-}, }-{, }{, |=|, [=], {=}, /-/, (-), )-(, :-:, I+I,
+    I: 1, |, !, 9
+    J: _|, _/, _7, _), _], _}
+    K: |<, 1<, l<, |{, l{
+    L: |_, |, 1, ][
+    M: 44, |\/|, ^^, /\/\, /X\, []\/][, []V[], ][\\//][, (V),//., .\\, N\,
+    N: |\|, /\/, /V, ][\\][, И
+    O: 0, (), [], {}, <>, Ø, oh,
+    P: |o, |O, |>, |*, |°, |D, /o, []D, |7
+    Q: O_, 9, (,), 0,kw,
+    R: |2, 12, .-, |^, l2, Я, ®
+    S: 5, $, §,
+    T: 7, +, 7`, '|' , `|` , ~|~ , -|-, '][',
+    U: |_|, \_\, /_/, \_/, (_), [_], {_}
+    V: \/
+    W: \/\/, (/\), \^/, |/\|, \X/, \\', '//, VV, \_|_/, \\//\\//, Ш, 2u, \V/,
+    X: %, *, ><, }{, )(, Ж,
+    Y: `/, ¥, \|/, Ч,
+    Z: 2, 5, 7_, >_,(/),
+
+
+
+'''
+
+def leetSpeak(wordlistRead, wordlistWrite):
+    ''' Convert each word to leet speak. Only includes e=3 l=1 a=4 b=8 o=0 s=5'''
+    try:
+        leetWord = ''
+        fd = open(wordlistWrite, 'w')
+        with open(wordlistRead, 'r') as f:
+            for eachWord in f:
+                for eachLetter in eachWord:
+                    if eachLetter == 'e' or eachLetter == 'E':
+                        eachLetter = '3'
+                        leetWord += eachLetter
+                    elif eachLetter == 'l' or eachLetter == 'L':
+                        eachLetter = '1'
+                        leetWord += eachLetter
+                    elif eachLetter == 'a' or eachLetter == 'A':
+                        eachLetter = '4'
+                        leetWord += eachLetter
+                    elif eachLetter == 'b' or eachLetter == 'B':
+                        eachLetter = '8'
+                        leetWord += eachLetter
+                    elif eachLetter == 'o' or eachLetter == 'O':
+                        eachLetter = '0'
+                        leetWord += eachLetter
+                    elif eachLetter == 's' or eachLetter == 'S':
+                        eachLetter = '5'
+                        leetWord += eachLetter
+                    else:
+                        leetWord += eachLetter
+            fd.write(leetWord)
+            fd.close()
+    except FileNotFoundError as e:
+        print("Wordlist selected is not found.")
+    except PermissionError as e:
+        print("Reading/Writing Error: Permission Denied")
+    except:
+        print("Unknown Error Occurred.")
+
+
+
+
 # -- End Wordlist Functions ---
 
 
@@ -281,9 +360,12 @@ optional.add_argument('-m', '--mixlower', action='store_true', help='Mixcase sta
 optional.add_argument('-s', '--suffix', help='Suffix user specified string to end of each word per line')
 optional.add_argument('-p', '--prefix', help='Prefix user specified string to beginning of each word per line')
 optional.add_argument('-v', '--version', action='version', version='Wordlist Manipulator v{0}'.format(__version__)  ,help='Output version information and exit') 
+optional.add_argument('-e', '--elasbos', action='store_true', help='Minor leetspeak.Only includes a=4, l=1, o=0, b=8, s=5, e=3')
+
 
 # Access arguments via argparser.argument
 argparser = parser.parse_args()
+
 
 if argparser.capitalize:
     CapFirstLetter(argparser.wordlist, argparser.output) 
@@ -309,4 +391,6 @@ if argparser.suffix:
 if argparser.prefix:
     Prefix(argparser.wordlist, argparser.output, argparser.prefix) 
 
-
+if argparser.leetspeak:
+    leetSpeak(argparser.wordlist, argparser.output)
+    
